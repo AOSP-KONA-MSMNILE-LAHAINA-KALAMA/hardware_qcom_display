@@ -114,6 +114,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.disable_layer_stitch=0
 endif
 
+# Enabled to allow HWC path for WFD.
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.display.vds_allow_hwc=1
+
 ifeq ($(TARGET_BOARD_PLATFORM),holi)
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.secure_preview_buffer_format=420_sp \
@@ -136,6 +140,8 @@ else
     PRODUCT_COPY_FILES += $(DISPLAY_HAL_DIR)/config/qdcm_calib_data_nt36672e_lcd_video_mode_dsi_novatek_fhd_plus_144Hz_with_DSC.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_nt36672e_fhd_plus_120Hz_Video_panel.xml
     PRODUCT_COPY_FILES += $(DISPLAY_HAL_DIR)/config/qdcm_calib_data_nt36672e_lcd_video_mode_dsi_novatek_fhd_plus_144Hz_with_DSC.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_nt36672e_fhd_plus_144Hz_video_panel.xml
     PRODUCT_COPY_FILES += $(DISPLAY_HAL_DIR)/config/qdcm_calib_data_nt36672e_lcd_video_mode_dsi_novatek_fhd_plus_144Hz_with_DSC.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_nt36672e_60_Hz_fhd_plus_video_mode_panel_without_DSC.xml
+    #QDCM calibration xml file for eDP panel.
+    PRODUCT_COPY_FILES += $(DISPLAY_HAL_DIR)/config/qdcm_calib_data_nt36672e_lcd_video_mode_dsi_novatek_fhd_plus_144Hz_with_DSC.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_generic_panel.xml
 endif
 
 ifneq ($(PLATFORM_VERSION), 10)
